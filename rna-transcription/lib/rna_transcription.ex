@@ -12,7 +12,7 @@ defmodule RnaTranscription do
     Enum.map(dna, fn nuc -> transcribe(nuc) end) |> List.to_charlist()
   end
 
-  @spec transcribe(any) :: nil | [65 | 67 | 71 | 85, ...]
+  @spec transcribe(any) :: nil | 65 | 67 | 71 | 85
   def transcribe(nuc) do
     case nuc do
       ?G -> ?C
