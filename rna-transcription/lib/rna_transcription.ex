@@ -9,17 +9,16 @@ defmodule RnaTranscription do
   """
   @spec to_rna([char]) :: [char]
   def to_rna(dna) do
-    Enum.map(dna, fn nuc -> transcribe(nuc) end) |> List.to_charlist()
+    Enum.map(dna, &transcribe(&1))
   end
 
-  @spec transcribe(any) :: nil | 65 | 67 | 71 | 85
+  @spec transcribe(any) :: ?A | ?C | ?G | ?U
   def transcribe(nuc) do
     case nuc do
       ?G -> ?C
       ?C -> ?G
       ?T -> ?A
       ?A -> ?U
-      _ -> nil
     end
   end
 end
